@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Game</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/jquery/jquery.js"></script>
+        <script type="text/javascript" src="js/logic.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                Board();
+                FruitCell();
+                $(document).bind('keydown', function (e) {
+                    getNewDirection(e.keyCode);
+                });
+                startGame();
+            });
+            function reset()
+            {
+                var flag = confirm('Game Restart!!');
+                if (flag)
+                {
+                    location.reload();
+                }
+                else
+                {
+                    window.close();
+                }
+
+            }
+            function exit()
+            {
+                window.open('', '_parent', '');
+                window.close();
+            }
+        </script>
+    </head>
+    <body>
+        <div id="scoreBoard">Your Score : 0</div>
+        <div class="gameOver" style="display:none" onclick="reset()">Game Over !</div>
+    </body>
+</html>
